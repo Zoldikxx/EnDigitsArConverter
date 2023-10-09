@@ -61,10 +61,12 @@ public class Converter {
                     }
                 }
                 result.insert(0, groupDescription + " ");
+
             }
 
             group++;
         }
+        result.append("جنيها فقط لاغير");
 
         return ((result.length() > 0) ? result.toString() : "");
     }
