@@ -82,30 +82,35 @@ public class Words {
         arabicTwos.add("ألفان");
         arabicTwos.add("مليونان");
         arabicTwos.add("ملياران");
+        arabicTwos.add("ترليونان");
 
         {
             arabicAppendedTwos.add("مئتا");
             arabicAppendedTwos.add("ألفا");
             arabicAppendedTwos.add("مليونا");
             arabicAppendedTwos.add("مليارا");
+            arabicAppendedTwos.add("ترليونا");
         }
 
         arabicGroup.add("مائة");
         arabicGroup.add("ألف");
         arabicGroup.add("مليون");
         arabicGroup.add("مليار");
+        arabicGroup.add("ترليون");
 
         {
             arabicAppendedGroup.add("");
             arabicAppendedGroup.add("ألفاً");
             arabicAppendedGroup.add("مليوناً");
             arabicAppendedGroup.add("ملياراً");
+            arabicAppendedGroup.add("ترليوناً");
         }
 
         arabicPluralGroups.add("");
         arabicPluralGroups.add("آلاف");
         arabicPluralGroups.add("ملايين");
         arabicPluralGroups.add("مليارات");
+        arabicPluralGroups.add("ترليونات");
     }
 
 }
