@@ -16,7 +16,6 @@ public class Words {
     static final List<String> arabicPluralGroups = new ArrayList<>();
 
     static {
-        /* Ones */
         arabicOnes.add("");
         arabicOnes.add("واحد");
         arabicOnes.add("اثنان");
@@ -58,9 +57,7 @@ public class Words {
         arabicFemOnes.add("سبع عشرة");
         arabicFemOnes.add("ثماني عشرة");
         arabicFemOnes.add("تسع عشرة");
-        /* Ones */
 
-        /* Tens */
         arabicTens.add("عشرون");
         arabicTens.add("ثلاثون");
         arabicTens.add("أربعون");
@@ -69,9 +66,7 @@ public class Words {
         arabicTens.add("سبعون");
         arabicTens.add("ثمانون");
         arabicTens.add("تسعون");
-        /* Tens */
 
-        /* Hundreds */
         arabicHundreds.add("");
         arabicHundreds.add("مائة");
         arabicHundreds.add("مئتان");
@@ -82,45 +77,35 @@ public class Words {
         arabicHundreds.add("سبعمائة");
         arabicHundreds.add("ثمانمائة");
         arabicHundreds.add("تسعمائة");
-        /* Hundreds */
 
-        /* Twos */
         arabicTwos.add("مئتان");
         arabicTwos.add("ألفان");
         arabicTwos.add("مليونان");
         arabicTwos.add("ملياران");
 
-        /* Appended */
         {
             arabicAppendedTwos.add("مئتا");
             arabicAppendedTwos.add("ألفا");
             arabicAppendedTwos.add("مليونا");
             arabicAppendedTwos.add("مليارا");
         }
-        /* Appended */
-        /* Twos */
 
-        /* Group */
         arabicGroup.add("مائة");
         arabicGroup.add("ألف");
         arabicGroup.add("مليون");
         arabicGroup.add("مليار");
-        /* Appended */
+
         {
             arabicAppendedGroup.add("");
             arabicAppendedGroup.add("ألفاً");
             arabicAppendedGroup.add("مليوناً");
             arabicAppendedGroup.add("ملياراً");
         }
-        /* Appended */
-        /* Group */
 
-        /* Plural groups*/
         arabicPluralGroups.add("");
         arabicPluralGroups.add("آلاف");
         arabicPluralGroups.add("ملايين");
         arabicPluralGroups.add("مليارات");
-        /* Plural groups*/
     }
 
 }

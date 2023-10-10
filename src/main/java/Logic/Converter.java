@@ -13,19 +13,49 @@ public class Converter {
     }
 
     public static String numberToArabicWords(String number, boolean isFeminine) {
-        return numberToArabicWords(new BigInteger(number), isFeminine);
+        return numberToArabicWords(new BigDecimal(number), isFeminine);
     }
 
-    public static String numberToArabicWords(BigInteger number, boolean isFeminine) {
+    public static String numberToArabicWords(BigDecimal number, boolean isFeminine) {
         return convertToArabic(number, isFeminine).trim();
     }
 
-    static String convertToArabic(BigInteger number, boolean isFeminine) {
-        if (number.equals(BigInteger.ZERO)) {
+    private static String convertFractionalPart(BigDecimal fractionalPart) {
+        StringBuilder fractionalResult = new StringBuilder();
+
+        int tens = fractionalPart.multiply(BigDecimal.TEN).intValue();
+        int ones = fractionalPart.movePointRight(2).remainder(BigDecimal.TEN).intValue();
+
+        int onesLessTwen = fractionalPart.multiply(new BigDecimal("100")).intValue();
+
+        if (tens >= 2) {
+            int tensMod = tens- 2;
+            fractionalResult.append(" و ").append(arabicTens.get(tensMod)).append(" ");
+        }
+
+        if (ones > 0 && tens >= 2) {
+            fractionalResult.insert(0, " و " + arabicOnes.get(ones));
+        }
+
+        if (ones > 0 && tens == 1){
+            fractionalResult.insert(0, " و " + arabicOnes.get(onesLessTwen) + " ");
+        }
+
+        return fractionalResult.toString();
+    }
+
+    static String convertToArabic(BigDecimal number, boolean isFeminine) {
+        if (number.equals(BigDecimal.ZERO)) {
             return "صفر";
         }
 
-        BigDecimal tempNumber = new BigDecimal(number);
+        BigDecimal fractionalPart = number.remainder(BigDecimal.ONE);
+
+        String fractionResult = convertFractionalPart(fractionalPart);
+
+        BigDecimal tempNumber = number;
+
+        tempNumber = tempNumber.subtract(fractionalPart);
 
         StringBuilder result = new StringBuilder();
         short group = 0;
@@ -66,7 +96,14 @@ public class Converter {
 
             group++;
         }
-        result.append("جنيها فقط لاغير");
+        if (result != null && !result.isEmpty()) {
+            result.append("جنيها");
+        }
+        result.append(fractionResult);
+        if (fractionResult != null && !fractionResult.isEmpty()) {
+            result.append("قرشا");
+        }
+        result.append(" فقط لاغير");
 
         return ((result.length() > 0) ? result.toString() : "");
     }
