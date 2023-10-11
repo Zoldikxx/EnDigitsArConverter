@@ -98,6 +98,7 @@ public class Converter {
         }
         if (result != null && !result.isEmpty()) {
             result.append("جنيها");
+            result.append(" مصريا");
         }
         result.append(fractionResult);
         if (fractionResult != null && !fractionResult.isEmpty()) {
